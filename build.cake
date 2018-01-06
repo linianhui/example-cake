@@ -1,44 +1,75 @@
-#tool "nuget:?package=xunit.runner.console"
-
 /// args
 var target = Argument("target", "default");
 
+var soluctionFile    = "./cake.example.sln";
+var srcProjectFiles  = GetFiles("./1-src/**/*.csproj");
+var testProjectFiles = GetFiles("./2-test/**/*.csproj");
+var distPath         = "./3-dist/";
 
 /// build task
 Task("build")
     .IsDependentOn("clean")
-    .IsDependentOn("restore-nuget-packages")
+    .IsDependentOn("restore")
     .Does(() =>
 {
-    MSBuild("./cake.demo.sln", new MSBuildSettings{
-        Verbosity = Verbosity.Minimal
-    });
+	var dotNetCoreBuildSettings = new DotNetCoreBuildSettings
+    {
+        ArgumentCustomization = _=>_.Append("--no-restore")
+    };
+     
+	DotNetCoreBuild(soluctionFile, dotNetCoreBuildSettings);
 });
 
 Task("clean")
     .Does(() =>
 {
-    CleanDirectories("./src/*/bin");
-    CleanDirectories("./test/*/bin");
+	DotNetCoreClean(soluctionFile);
 });
 
-/// nuget task
-Task("restore-nuget-packages")
+/// restore task
+Task("restore")
     .Does(() =>
 {
-    NuGetRestore("./cake.demo.sln");
+	DotNetCoreRestore(soluctionFile);
 });
 
-/// unit-test task
-Task("unit-test")
+/// test task
+Task("test")
     .IsDependentOn("build")
     .Does(() =>
 {
-    XUnit2("./test/*/bin/*/*.Tests.dll");
+	var dotNetCoreTestSettings = new DotNetCoreTestSettings
+    {
+        ArgumentCustomization = _=>_.Append("--no-build").Append("--no-restore")
+    };
+    foreach(var testProjectFile in testProjectFiles)
+    {
+        DotNetCoreTest(testProjectFile.FullPath, dotNetCoreTestSettings);
+    }
+});
+
+/// pack task
+Task("pack")
+    .IsDependentOn("test")
+    .Does(() =>
+{
+    DeleteFiles(distPath + "*.nupkg");
+    
+    var dotNetCorePackSetting = new DotNetCorePackSettings {
+        Configuration = "Release",
+        OutputDirectory = distPath,
+        IncludeSource = true,
+        IncludeSymbols = true,
+        NoBuild = false
+    };
+
+    foreach(var project in srcProjectFiles){
+        DotNetCorePack(project.FullPath, dotNetCorePackSetting);
+    }
 });
 
 Task("default")
-    .IsDependentOn("unit-test");
+    .IsDependentOn("test");
 
 /// run task
 RunTarget(target);

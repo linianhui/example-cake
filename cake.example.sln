@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-src", "1-src", "{FD6E3F8A-B0A1-4C85-95E8-F50E9CDF66C3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-test", "2-test", "{70C7A1C8-7F2B-48D0-886D-7EF94634A07A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Example", "1-src\Cake.Example\Cake.Example.csproj", "{0B2B1B7C-D288-45CC-A73F-3B78A40B4A63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Example.Tests", "2-test\Cake.Example.Tests\Cake.Example.Tests.csproj", "{1A039FB8-16A7-49CA-AC9C-54C2E35C532F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "cake", "cake", "{99467BEF-1590-4517-A796-36ED4FC55DFC}"
+	ProjectSection(SolutionItems) = preProject
+		build.cake = build.cake
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0B2B1B7C-D288-45CC-A73F-3B78A40B4A63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B2B1B7C-D288-45CC-A73F-3B78A40B4A63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B2B1B7C-D288-45CC-A73F-3B78A40B4A63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B2B1B7C-D288-45CC-A73F-3B78A40B4A63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A039FB8-16A7-49CA-AC9C-54C2E35C532F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A039FB8-16A7-49CA-AC9C-54C2E35C532F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A039FB8-16A7-49CA-AC9C-54C2E35C532F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A039FB8-16A7-49CA-AC9C-54C2E35C532F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0B2B1B7C-D288-45CC-A73F-3B78A40B4A63} = {FD6E3F8A-B0A1-4C85-95E8-F50E9CDF66C3}
+		{1A039FB8-16A7-49CA-AC9C-54C2E35C532F} = {70C7A1C8-7F2B-48D0-886D-7EF94634A07A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0A853CA8-6D1A-4DD4-BC8F-452CCA6BED3A}
+	EndGlobalSection
+EndGlobal
