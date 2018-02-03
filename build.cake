@@ -1,75 +1,80 @@
 /// args
 var target = Argument("target", "default");
 
-var soluctionFile    = "./cake.example.sln";
-var srcProjectFiles  = GetFiles("./1-src/**/*.csproj");
-var testProjectFiles = GetFiles("./2-test/**/*.csproj");
-var distPath         = "./3-dist/";
+var rootPath     = "./";
+var srcPath      = rootPath + "1-src/";
+var testPath     = rootPath + "2-test/";
+var distPath     = "./3-dist/";
 
-/// build task
+var soluction    = rootPath + "cake.example.sln";
+var srcProjects  = GetFiles(srcPath + "**/*.csproj");
+var testProjects = GetFiles(testPath + "**/*.csproj");
+
+Task("clean")
+    .Description("清理项目缓存")
+    .Does(() =>
+{
+    DotNetCoreClean(soluction);
+    DeleteFiles(distPath + "*.nupkg");
+});
+
+Task("restore")
+    .Description("还原项目依赖")
+    .Does(() =>
+{
+    DotNetCoreRestore(soluction);
+});
+
 Task("build")
+    .Description("编译项目")
     .IsDependentOn("clean")
     .IsDependentOn("restore")
     .Does(() =>
 {
-	var dotNetCoreBuildSettings = new DotNetCoreBuildSettings
-    {
-        ArgumentCustomization = _=>_.Append("--no-restore")
+    var buildSetting = new DotNetCoreBuildSettings{
+        NoRestore = true
     };
      
-	DotNetCoreBuild(soluctionFile, dotNetCoreBuildSettings);
+    DotNetCoreBuild(soluction, buildSetting);
 });
 
-Task("clean")
-    .Does(() =>
-{
-	DotNetCoreClean(soluctionFile);
-});
 
-/// restore task
-Task("restore")
-    .Does(() =>
-{
-	DotNetCoreRestore(soluctionFile);
-});
-
-/// test task
 Task("test")
+    .Description("运行测试")
     .IsDependentOn("build")
     .Does(() =>
 {
-	var dotNetCoreTestSettings = new DotNetCoreTestSettings
-    {
-        ArgumentCustomization = _=>_.Append("--no-build").Append("--no-restore")
+    var testSetting = new DotNetCoreTestSettings{
+        NoRestore = true,
+        NoBuild = true
     };
-    foreach(var testProjectFile in testProjectFiles)
+
+    foreach(var testProject in testProjects)
     {
-        DotNetCoreTest(testProjectFile.FullPath, dotNetCoreTestSettings);
+        DotNetCoreTest(testProject.FullPath, testSetting);
     }
 });
 
-/// pack task
 Task("pack")
+    .Description("nuget打包")
     .IsDependentOn("test")
     .Does(() =>
 {
-    DeleteFiles(distPath + "*.nupkg");
-    
-    var dotNetCorePackSetting = new DotNetCorePackSettings {
-        Configuration = "Release",
+    var packSetting = new DotNetCorePackSettings {
+        Configuration   = "Release",
         OutputDirectory = distPath,
-        IncludeSource = true,
-        IncludeSymbols = true,
-        NoBuild = false
+        IncludeSource   = true,
+        IncludeSymbols  = true,
+        NoBuild         = false
     };
 
-    foreach(var project in srcProjectFiles){
-        DotNetCorePack(project.FullPath, dotNetCorePackSetting);
+    foreach(var srcProject in srcProjects){
+        DotNetCorePack(srcProject.FullPath, packSetting);
     }
 });
 
 Task("default")
+    .Description("默认-运行测试(-target test)")
     .IsDependentOn("test");
 
-/// run task
 RunTarget(target);
