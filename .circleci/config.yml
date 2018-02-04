@@ -1,4 +1,5 @@
 version: 2
+
 jobs:
   test:
     docker:
@@ -7,3 +8,9 @@ jobs:
       - checkout
       - run: chmod +x ./build.sh
       - run: ./build.sh -target=test
+      
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test
