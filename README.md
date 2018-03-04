@@ -8,7 +8,7 @@
 # Cake Example
 A simple cake example with https://github.com/cake-build/cake.
 
-blog : http://linianhui.cnblogs.com/p/cake-overview.html
+blog : http://www.cnblogs.com/linianhui/category/990845.html
 
 # build.ps1
 
