@@ -252,9 +252,9 @@ paket-files/
 *.sln.iml
 
 # Cake - C# Make
-0-tools/*
-!0-tools/nuget.exe
-!0-tools/packages.config
+0-build/tools/*
+!0-build/tools/nuget.exe
+!0-build/tools/packages.config
 
 # VS Code
 .vscode/
