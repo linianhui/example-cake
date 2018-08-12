@@ -8,5 +8,4 @@ mono: latest
 dotnet: 2.1.4
 
 script:
-  - chmod +x ./build.sh
   - ./build.sh -target=test

@@ -6,7 +6,6 @@ jobs:
       - image: lnhcode/dotnet2-mono5
     steps:
       - checkout
-      - run: chmod +x ./build.sh
       - run: ./build.sh -target=test
       
 workflows:
