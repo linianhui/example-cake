@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 # Define default arguments.
 SCRIPT="0-build/build.cake"
