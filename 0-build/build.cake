@@ -4,7 +4,7 @@ var target = Argument("target", "default");
 var rootPath     = "../";
 var srcPath      = rootPath + "1-src/";
 var testPath     = rootPath + "2-test/";
-var distPath     = "./3-dist/";
+var distPath     = rootPath + "3-dist/";
 
 var soluction    = rootPath + "cake.example.sln";
 var srcProjects  = GetFiles(srcPath + "**/*.csproj");

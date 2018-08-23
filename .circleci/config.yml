@@ -3,10 +3,10 @@ version: 2
 jobs:
   test:
     docker:
-      - image: lnhcode/dotnet2-mono5
+      - image: lnhcode/dotnet-cake:2.1-sdk-apline.0.30.0
     steps:
       - checkout
-      - run: ./build.sh -target=test
+      - run: ./cake.sh -target=test
       
 workflows:
   version: 2

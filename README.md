@@ -10,6 +10,9 @@ A simple cake example with https://github.com/cake-build/cake.
 
 blog : http://www.cnblogs.com/linianhui/category/990845.html
 
-# build.ps1
+# cake.ps1 (windows)
+`.\cake.ps1`
 
-1. `.\build.ps1 -help`：帮助信息。
+# cake.sh (linux)
+`.\cake.sh`
+

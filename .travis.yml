@@ -2,10 +2,8 @@ language: csharp
 
 os:
   - linux
-  
-mono: latest
 
 dotnet: 2.1.4
 
 script:
-  - ./build.sh -target=test
+  - ./cake.sh -target=test
