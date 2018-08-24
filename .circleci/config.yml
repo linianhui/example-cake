@@ -3,7 +3,7 @@ version: 2
 jobs:
   test:
     docker:
-      - image: lnhcode/dotnet-cake:2.1-sdk-apline.0.30.0
+      - image: microsoft/dotnet:2.1-sdk-apline
     steps:
       - checkout
       - run: ./cake.sh -target=test
