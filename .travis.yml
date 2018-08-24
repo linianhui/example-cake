@@ -3,7 +3,8 @@ language: csharp
 os:
   - linux
 
-dotnet: 2.1.4
+mono: none
+dotnet: 2.2.200
 
 script:
   - ./cake.sh -target=test
