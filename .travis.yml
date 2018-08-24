@@ -7,5 +7,5 @@ mono: none
 dotnet: 2.1.401
 
 script:
-  - export PATH="$PATH:/root/.dotnet/tools"
+  - export PATH="$PATH:$HOME/.dotnet/tools"
   - ./cake.sh -target=test
