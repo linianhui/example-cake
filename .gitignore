@@ -253,6 +253,7 @@ paket-files/
 
 # Cake - C# Make
 0-build/tools/*
+tools/*
 
 # VS Code
 .vscode/

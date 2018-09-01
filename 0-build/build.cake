@@ -1,4 +1,5 @@
-/// args
+#load nuget.push.cake
+
 var target = Argument("target", "default");
 
 var rootPath     = "../";
@@ -6,7 +7,7 @@ var srcPath      = rootPath + "1-src/";
 var testPath     = rootPath + "2-test/";
 var distPath     = rootPath + "3-dist/";
 
-var soluction    = rootPath + "cake.example.sln";
+var solution    = rootPath + "cake.example.sln";
 var srcProjects  = GetFiles(srcPath + "**/*.csproj");
 var testProjects = GetFiles(testPath + "**/*.csproj");
 
@@ -14,7 +15,7 @@ Task("clean")
     .Description("清理项目缓存")
     .Does(() =>
 {
-    DotNetCoreClean(soluction);
+    DotNetCoreClean(solution);
     DeleteFiles(distPath + "*.nupkg");
 });
 
@@ -22,7 +23,7 @@ Task("restore")
     .Description("还原项目依赖")
     .Does(() =>
 {
-    DotNetCoreRestore(soluction);
+    DotNetCoreRestore(solution);
 });
 
 Task("build")
@@ -35,7 +36,7 @@ Task("build")
         NoRestore = true
     };
      
-    DotNetCoreBuild(soluction, buildSetting);
+    DotNetCoreBuild(solution, buildSetting);
 });
 
 
@@ -71,6 +72,14 @@ Task("pack")
     foreach(var srcProject in srcProjects){
         DotNetCorePack(srcProject.FullPath, packSetting);
     }
+});
+
+Task("push")
+    .Description("nuget发布")
+    .IsDependentOn("pack")
+    .Does(() =>
+{
+    NugetPacakge_Push(distPath);
 });
 
 Task("default")
