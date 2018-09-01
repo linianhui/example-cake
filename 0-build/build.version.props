@@ -1,0 +1,6 @@
+<Project>
+  <!--Nuget Pack的版本信息-->
+  <PropertyGroup>
+    <Cake_Example_Version>18.9.1</Cake_Example_Version>
+  </PropertyGroup>
+</Project>

@@ -9,20 +9,8 @@
   <!--nuget打包配置-->
   <PropertyGroup>
     <PackageId>Cake.Example</PackageId>
-    <Version>18.1.6</Version>
-    <IncludeSymbols>true</IncludeSymbols>
-    <IncludeSource>true</IncludeSource>
-    <Authors>lnh</Authors>
-    <Company>lnh</Company>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <RepositoryType>git</RepositoryType>
-  </PropertyGroup>
-
-  <!--结构描述文档+视为错误的编译警告-->
-  <PropertyGroup>
-    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
-    <WarningsAsErrors>NU1605;CS0109;CS1572;CS1573;CS1591;CS1712</WarningsAsErrors>
+    <Version>$(Cake_Example_Version)</Version>
+    <Description>Cake Example 示例打包</Description>
   </PropertyGroup>
 
 </Project>

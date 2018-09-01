@@ -1,10 +1,17 @@
-﻿Microsoft Visual Studio Solution File, Format Version 12.00
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-src", "1-src", "{FD6E3F8A-B0A1-4C85-95E8-F50E9CDF66C3}"
+	ProjectSection(SolutionItems) = preProject
+		1-src\Directory.Build.props = 1-src\Directory.Build.props
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-test", "2-test", "{70C7A1C8-7F2B-48D0-886D-7EF94634A07A}"
+	ProjectSection(SolutionItems) = preProject
+		2-test\Directory.Build.props = 2-test\Directory.Build.props
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Example", "1-src\Cake.Example\Cake.Example.csproj", "{0B2B1B7C-D288-45CC-A73F-3B78A40B4A63}"
 EndProject
@@ -13,12 +20,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0-build", "0-build", "{DCE37BE7-F25A-4CE6-BB32-6F88825F5F7B}"
 	ProjectSection(SolutionItems) = preProject
 		0-build\build.cake = 0-build\build.cake
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{243DB9C9-E96F-47E2-81B0-2425BA0FDA32}"
-	ProjectSection(SolutionItems) = preProject
-		0-build\tools\nuget.exe = 0-build\tools\nuget.exe
-		0-build\tools\packages.config = 0-build\tools\packages.config
+		0-build\build.props = 0-build\build.props
+		0-build\build.version.props = 0-build\build.version.props
+		0-build\nuget.push.cake = 0-build\nuget.push.cake
 	EndProjectSection
 EndProject
 Global
@@ -42,7 +46,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{0B2B1B7C-D288-45CC-A73F-3B78A40B4A63} = {FD6E3F8A-B0A1-4C85-95E8-F50E9CDF66C3}
 		{1A039FB8-16A7-49CA-AC9C-54C2E35C532F} = {70C7A1C8-7F2B-48D0-886D-7EF94634A07A}
-		{243DB9C9-E96F-47E2-81B0-2425BA0FDA32} = {DCE37BE7-F25A-4CE6-BB32-6F88825F5F7B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0A853CA8-6D1A-4DD4-BC8F-452CCA6BED3A}
