@@ -9,10 +9,3 @@
 A simple cake example with https://github.com/cake-build/cake.
 
 blog : http://www.cnblogs.com/linianhui/category/990845.html
-
-# cake.ps1 (windows)
-`.\cake.ps1`
-
-# cake.sh (linux)
-`.\cake.sh`
-
