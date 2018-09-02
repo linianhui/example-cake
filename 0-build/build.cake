@@ -1,6 +1,6 @@
 #reference "NuGet.Packaging"
 
-#load nuget.push.cake
+#load nuget.tool.cake
 
 var target = Argument("target", "default");
 
@@ -9,9 +9,11 @@ var srcPath      = rootPath + "1-src/";
 var testPath     = rootPath + "2-test/";
 var distPath     = rootPath + "3-dist/";
 
-var solution    = rootPath + "cake.example.sln";
+var solution     = rootPath + "cake.example.sln";
 var srcProjects  = GetFiles(srcPath + "**/*.csproj");
 var testProjects = GetFiles(testPath + "**/*.csproj");
+
+var nugetTool = NuGetTool.FromCakeContext(Context);
 
 Task("clean")
     .Description("清理项目缓存")
@@ -63,17 +65,9 @@ Task("pack")
     .IsDependentOn("test")
     .Does(() =>
 {
-    var packSetting = new DotNetCorePackSettings {
-        Configuration   = "Release",
-        OutputDirectory = distPath,
-        IncludeSource   = true,
-        IncludeSymbols  = true,
-        NoBuild         = false
-    };
+    var projectFilePaths = srcProjects.Select(_=>_.FullPath).ToList();
 
-    foreach(var srcProject in srcProjects){
-        DotNetCorePack(srcProject.FullPath, packSetting);
-    }
+    nugetTool.Pack(projectFilePaths, distPath);
 });
 
 Task("push")
@@ -81,7 +75,9 @@ Task("push")
     .IsDependentOn("pack")
     .Does(() =>
 {
-    NugetPacakge_Push(distPath);
+    var packageFilePaths = GetFiles(distPath + "*.symbols.nupkg").Select(_=>_.FullPath).ToList();
+
+    nugetTool.Push(packageFilePaths);
 });
 
 Task("default")
