@@ -1,3 +1,5 @@
+#reference "NuGet.Packaging"
+
 #load nuget.push.cake
 
 var target = Argument("target", "default");

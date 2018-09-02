@@ -8,7 +8,7 @@ dotnet tool install --global cake.tool --version $CAKE_VERSION
 export PATH="$PATH:$HOME/.dotnet/tools"
 
 # Start Cake
-CAKE_ARGS="$SCRIPT -verbosity=verbose"
+CAKE_ARGS="$SCRIPT -verbosity=diagnostic"
 
 echo "\033[32mdotnet cake $CAKE_ARGS $@"
 
