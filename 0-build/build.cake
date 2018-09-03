@@ -22,6 +22,8 @@ Task("clean")
     DeleteFiles(distPath + "*.nupkg");
     CleanDirectories(srcPath + "**/bin");
     CleanDirectories(srcPath + "**/obj");
+    CleanDirectories(testProjects + "**/bin");
+    CleanDirectories(testProjects + "**/obj");
 });
 
 Task("restore")
