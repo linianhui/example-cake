@@ -1,0 +1,5 @@
+image: microsoft/dotnet:2.1-sdk-alpine
+
+test:
+  stage: test
+  script: ./cake.sh -target=test
