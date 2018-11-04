@@ -1,0 +1,5 @@
+pipeline:
+  test:
+    image: microsoft/dotnet:2.1-sdk-alpine
+    commands:
+      - ./cake.sh -target=test
