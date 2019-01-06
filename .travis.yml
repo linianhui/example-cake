@@ -3,6 +3,8 @@ language: csharp
 os:
   - linux
 
+dist: xenial
+
 mono: none
 dotnet: 2.2
 
