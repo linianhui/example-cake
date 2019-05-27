@@ -1,5 +1,5 @@
 pipeline:
   test:
-    image: microsoft/dotnet:2.2-sdk-alpine
+    image: mcr.microsoft.com/dotnet/core/sdk:2.2-alpine
     commands:
-      - ./cake.sh -target=test
+      - ./cake.sh -target test
