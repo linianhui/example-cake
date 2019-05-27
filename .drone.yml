@@ -2,4 +2,4 @@ pipeline:
   test:
     image: mcr.microsoft.com/dotnet/core/sdk:2.2-alpine
     commands:
-      - ./cake.sh -target test
+      - ./cake.sh -target=test

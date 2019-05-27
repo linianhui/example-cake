@@ -9,4 +9,4 @@ mono: none
 dotnet: 2.2
 
 script:
-  - ./cake.sh -target test
+  - ./cake.sh -target=test
