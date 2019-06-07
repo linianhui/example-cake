@@ -1,6 +1,6 @@
 <Project>
   <!--Nuget Pack的版本信息-->
   <PropertyGroup>
-    <Cake_Example_Version>19.1.6</Cake_Example_Version>
+    <Cake_Example_Version>1.0.1</Cake_Example_Version>
   </PropertyGroup>
 </Project>
