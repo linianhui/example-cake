@@ -1,5 +1,5 @@
 [string]$SCRIPT       = '0-build/build.cake'
-[string]$CAKE_VERSION = '0.33.0'
+[string]$CAKE_VERSION = '0.34.1'
 
 # nuget server config
 $ENV:NUGET_REPOSITORY_API_URL = "http://nuget-server.test/nuget"
