@@ -1,13 +1,37 @@
 # CI
-| CI Service     | Build Platform | Stauts                                                                                                                                                     |
-| -------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AppVeyor       | Windows        | [![Build status](https://ci.appveyor.com/api/projects/status/eut4t868xjijo3lo?svg=true)](https://ci.appveyor.com/project/linianhui/cake-example)           |
-| Travis         | Linux          | [![Build Status](https://travis-ci.org/linianhui/cake.example.svg?branch=master)](https://travis-ci.org/linianhui/cake.example)                            |
-| Circle         | Docker         | [![Build status](https://circleci.com/gh/linianhui/cake.example/tree/master.svg?style=svg)](https://circleci.com/gh/linianhui/cake.example/tree/master)    |
-| Azure Piplines | Linux          | [![Build status](https://dev.azure.com/lnhcode/github/_apis/build/status/cake.example)](https://dev.azure.com/lnhcode/github/_build/latest?definitionId=1) |
-| Gitlab CI      | Docker         | [![pipeline status](https://gitlab.com/lnh/cake.example/badges/master/pipeline.svg)](https://gitlab.com/lnh/cake.example/commits/master)                   |
+
+| CI Service     | Platform | Status                                      |
+| -------------- | -------- | ------------------------------------------- |
+| Azure Piplines | linux    | [![Azure-Piplines-Img]][Azure-Piplines-Url] |
+| AppVeyor       | windows  | [![AppVeyor-Img]][AppVeyor-Url]             |
+| Circle         | docker   | [![Circle-Img]][Circle-Url]                 |
+| GitHub Actions | docker   | [![GitHub-Actions-Img]][GitHub-Actions-Url] |
+| GitLab CI      | docker   | [![GitLab-CI-Img]][GitLab-CI-Url]           |
+| Travis         | linux    | [![Travis-Img]][Travis-Url]                 |
+
 
 # Cake Example
 A simple cake example with https://github.com/cake-build/cake.
 
 blog : http://www.cnblogs.com/linianhui/category/990845.html
+
+
+
+
+[GitHub-Actions-Img]:https://github.com/linianhui/cake.example/workflows/test/badge.svg
+[GitHub-Actions-Url]:https://github.com/linianhui/cake.example/actions
+
+[GitLab-CI-Img]:https://gitlab.com/lnh/cake.example/badges/master/pipeline.svg
+[GitLab-CI-Url]:https://gitlab.com/lnh/cake.example/commits/master
+
+[AppVeyor-Img]:https://ci.appveyor.com/api/projects/status/eut4t868xjijo3lo?svg=true
+[AppVeyor-Url]:https://ci.appveyor.com/project/linianhui/cake-example
+
+[Travis-Img]:https://travis-ci.org/linianhui/cake.example.svg?branch=master
+[Travis-Url]:https://travis-ci.org/linianhui/cake.example
+
+[Circle-Img]:https://circleci.com/gh/linianhui/cake.example/tree/master.svg?style=svg
+[Circle-Url]:https://circleci.com/gh/linianhui/cake.example/tree/master
+
+[Azure-Piplines-Img]:https://dev.azure.com/lnhcode/github/_apis/build/status/cake.example
+[Azure-Piplines-Url]:https://dev.azure.com/lnhcode/github/_build/latest?definitionId=1
