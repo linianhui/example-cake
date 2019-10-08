@@ -6,7 +6,7 @@ os:
 dist: xenial
 
 mono: none
-dotnet: 2.2
+dotnet: 3.0
 
 script:
   - ./cake.sh -target=test

@@ -1,6 +1,6 @@
 pool:
-  vmImage: 'Ubuntu 16.04'
+  vmImage: "Ubuntu 16.04"
 
 steps:
-- script: ./cake.sh -target=test
-  displayName: 'test'
+  - script: ./cake.sh -target=test
+    displayName: "test"
