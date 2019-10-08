@@ -1,16 +1,12 @@
-[string]$SCRIPT       = '0-build/build.cake'
-[string]$CAKE_VERSION = '0.34.1'
+[string]$CAKE_ARGS = "0-build/build.cake -verbosity=diagnostic"
 
-# nuget server config
 $ENV:NUGET_REPOSITORY_API_URL = "http://nuget-server.test/nuget"
 $ENV:NUGET_REPOSITORY_API_KEY = "123456"
 
-# Install cake.tool
-dotnet tool install --global cake.tool --version $CAKE_VERSION
+dotnet --info
 
-# Start Cake
-[string]$CAKE_ARGS = "-verbosity=diagnostic"
+dotnet tool restore
 
-Write-Host "dotnet cake $SCRIPT $CAKE_ARGS $ARGS" -ForegroundColor GREEN
+Write-Host "dotnet cake $CAKE_ARGS $ARGS" -ForegroundColor GREEN
 
-dotnet cake $SCRIPT $CAKE_ARGS $ARGS
+dotnet cake $CAKE_ARGS $ARGS
