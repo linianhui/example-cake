@@ -8,6 +8,8 @@ dotnet --info
 
 dotnet tool restore
 
+dotnet format --check --dry-run --verbosity minimal
+
 Write-Host "dotnet cake $CAKE_SCRIPT_FILE $CAKE_ARGS $ARGS" -ForegroundColor GREEN
 
 dotnet cake $CAKE_SCRIPT_FILE $CAKE_ARGS $ARGS

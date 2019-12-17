@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -x -e
+
 CAKE_SCRIPT_FILE='0-build/build.cake'
 CAKE_ARGS='-verbosity=diagnostic'
 
@@ -10,6 +12,6 @@ dotnet --info
 
 dotnet tool restore
 
-set -x
+dotnet format --check --dry-run --verbosity minimal
 
 dotnet cake $CAKE_SCRIPT_FILE $CAKE_ARGS "$@"
