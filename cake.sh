@@ -3,12 +3,12 @@
 set -x -e
 
 CAKE_SCRIPT_FILE='0-build/build.cake'
-CAKE_ARGS='-verbosity=diagnostic'
+CAKE_ARGS='--verbosity=verbose'
 
 export NUGET_REPOSITORY_API_URL='http://nuget-server.test/nuget'
 export NUGET_REPOSITORY_API_KEY='123456'
 
-dotnet --info
+dotnet --list-sdks
 
 dotnet tool restore
 
