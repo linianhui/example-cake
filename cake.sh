@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -x -e
+set -exo pipefail
 
 CAKE_SCRIPT_FILE='0-build/build.cake'
 CAKE_ARGS='--verbosity=verbose'
