@@ -7,7 +7,7 @@ jobs:
     steps:
       - checkout
       - run: ./cake.sh -target=test
-      
+
 workflows:
   version: 2
   test:
