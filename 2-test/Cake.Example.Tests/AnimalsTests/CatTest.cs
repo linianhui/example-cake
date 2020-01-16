@@ -1,4 +1,4 @@
-﻿using Cake.Example.Animals;
+using Cake.Example.Animals;
 using Xunit;
 
 namespace Cake.Example.Tests.AnimalsTests

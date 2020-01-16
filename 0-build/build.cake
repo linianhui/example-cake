@@ -42,7 +42,7 @@ Task("build")
     var buildSetting = new DotNetCoreBuildSettings{
         NoRestore = true
     };
-     
+
     DotNetCoreBuild(solution, buildSetting);
 });
 
