@@ -5,7 +5,7 @@ jobs:
     docker:
       - image: mcr.microsoft.com/dotnet/core/sdk:3.0-alpine
     steps:
-      - run: apk add git
+      - run: apk add git openssh-client
       - checkout
       - run: ./cake.sh -target=test
 
