@@ -4,5 +4,4 @@ pool:
 container: mcr.microsoft.com/dotnet/core/sdk:3.1-alpine
 
 steps:
-  - displayName: test
-    script: ./cake.sh -target=test
+  - script: ./cake.sh -target=test
