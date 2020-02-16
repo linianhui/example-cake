@@ -2,7 +2,6 @@
 
 | CI Service     | Platform | Status                                      |
 | -------------- | -------- | ------------------------------------------- |
-| Azure Piplines | linux    | [![Azure-Piplines-Img]][Azure-Piplines-Url] |
 | AppVeyor       | windows  | [![AppVeyor-Img]][AppVeyor-Url]             |
 | Circle         | docker   | [![Circle-Img]][Circle-Url]                 |
 | GitHub Actions | docker   | [![GitHub-Actions-Img]][GitHub-Actions-Url] |
@@ -31,6 +30,3 @@ blog : http://www.cnblogs.com/linianhui/category/990845.html
 
 [Circle-Img]:https://circleci.com/gh/linianhui/cake.example/tree/master.svg?style=svg
 [Circle-Url]:https://circleci.com/gh/linianhui/cake.example/tree/master
-
-[Azure-Piplines-Img]:https://dev.azure.com/lnhcode/github/_apis/build/status/cake.example
-[Azure-Piplines-Url]:https://dev.azure.com/lnhcode/github/_build/latest?definitionId=1
